@@ -15,7 +15,8 @@ export class ListingsPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.listings = this.ListingService.getListings();
+    this.ListingService.getListings()
+      .subscribe(listings => this.listings = listings);
   }
 
 }
