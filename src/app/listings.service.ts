@@ -15,7 +15,7 @@ const httpOptions = {
 export class ListingsService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
   getListings(): Observable<Listing[]> {
@@ -27,6 +27,10 @@ export class ListingsService {
   }
 
   addViewToListing(id: string): Observable<Listing> {
-    return this.http.post<Listing>(`/api/listings/${id}/add-view`, {}, httpOptions);
+    return this.http.post<Listing>(
+      `/api/listings/${id}/add-view`,
+      {},
+      httpOptions,
+    );
   }
 }

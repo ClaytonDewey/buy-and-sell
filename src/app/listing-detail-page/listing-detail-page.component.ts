@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ListingsService } from '../listings.service';
 import { Listing } from '../types';
 
-
 @Component({
   selector: 'app-listing-detail-page',
   templateUrl: './listing-detail-page.component.html',
@@ -15,19 +14,18 @@ export class ListingDetailPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private listingService: ListingsService
+    private listingsService: ListingsService,
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.listingService.getListingById(id)
+    this.listingsService.getListingById(id)
       .subscribe(listing => {
         this.listing = listing;
         this.isLoading = false;
       });
-
-    this.listingService.addViewToListing(id)
-      .subscribe(() => console.log('Views updated'));
+    this.listingsService.addViewToListing(id)
+      .subscribe(() => console.log('Views updated!'));
   }
 
 }

@@ -13,7 +13,6 @@ export class ListingDataFormComponent implements OnInit {
   @Input() currentDescription = '';
   @Input() currentPrice = '';
 
-
   name: string = '';
   description: string = '';
   price: string = '';
@@ -21,7 +20,7 @@ export class ListingDataFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Listing>();
 
   constructor(
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +35,7 @@ export class ListingDataFormComponent implements OnInit {
       name: this.name,
       description: this.description,
       price: Number(this.price),
-      views: 0
-    })
+      views: 0,
+    });
   }
 }

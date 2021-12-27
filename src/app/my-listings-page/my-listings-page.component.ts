@@ -8,7 +8,7 @@ import { Listing } from '../types';
   styleUrls: ['./my-listings-page.component.css']
 })
 export class MyListingsPageComponent implements OnInit {
-  listings: Listing[] = []
+  listings: Listing[] = [];
 
   constructor() { }
 
@@ -17,6 +17,6 @@ export class MyListingsPageComponent implements OnInit {
   }
 
   onDeleteClicked(listingId: string): void {
-    alert(`Deleting your listing with id ${listingId}!`);
+    alert(`Deleting your listing with id ${listingId}`);
   }
 }
